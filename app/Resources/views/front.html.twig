@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap') }}" rel="stylesheet">
+        <link href="{{ asset('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap') }}"
+              rel="stylesheet">
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('client/css/font-awesome.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('client/css/nice-select.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('client/css/owl.carousel.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('client/css/magnific-popup.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('client/css/slicknav.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('client/css/style.css') }}" type="text/css">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+{% block body %}
+
+    <!-- Search model -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="inner-header">
+                <div class="logo">
+                    <a href="{{ asset('./index.html') }}"><img src="{{ asset('client/img/logoo.png') }}" alt="" style="height:60px"></a>
+                </div>
+                <div class="header-right">
+                    <img src="{{ asset('client/img/icons/search.png') }}" alt="" class="search-trigger">
+                    <img src="{{ asset('client/img/icons/man.png') }}" alt="">
+                    <a href="{{ asset('#') }}">
+                        <img src="{{ asset('client/img/icons/bag.png') }}" alt="">
+                        <span>2</span>
+                    </a>
+                </div>
+                <div class="user-access">
+                    <a href="{{ asset('#') }}">Register</a>
+                    <a href="{{ asset('#') }}" class="in">Sign in</a>
+                </div>
+                <nav class="main-menu mobile-menu">
+                    <ul>
+                        <!-- class="active" -->
+                        <li><a href="{{ asset('#') }}">Home</a></li>
+                        <li><a href="{{ asset('#') }}">Shop</a>
+                            <ul class="sub-menu">
+                                <li><a href="{{ asset ('#') }}">Product</a></li>
+                                <li><a href="{{ asset ('#') }}">Cart</a></li>
+                                <li><a href="{{ asset ('#') }}">Check out</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ asset ('#') }}">Forum</a></li>
+                        <li><a href="{{ asset('#') }}">Event</a></li>
+                        <li><a href="{{ asset('#') }}">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Header Info Begin -->
+    <div class="header-info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="header-item">
+                        <img src="{{ asset('client/img/icons/delivery.png') }}" alt="">
+                        <p>Free shipping on orders over 30DT in TUNISIA</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-left text-lg-center">
+                    <div class="header-item">
+                        <img src="{{ asset('client/img/icons/voucher.png') }}" alt="">
+                        <p>20% Student Discount</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-left text-xl-right">
+                    <div class="header-item">
+                        <img src="{{ asset('client/img/icons/sales.png') }}" alt="">
+                        <p>30% off on bikes. Use code: 30OFF</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Info End -->
+    <!-- Header End -->
+
+    {% block main %}
+
+
+    {% endblock %}
+
+    <!-- Logo Section Begin -->
+    <div class="logo-section spad">
+        <div class="logo-items owl-carousel">
+            <div class="logo-item">
+                <img src="{{ asset('client/img/logos/logo-1.png') }}" alt="">
+            </div>
+            <div class="logo-item">
+                <img src="{{ asset('client/img/logos/logo-2.png') }}" alt="">
+            </div>
+            <div class="logo-item">
+                <img src="{{ asset('client/img/logos/logo-3.png') }}" alt="">
+            </div>
+            <div class="logo-item">
+                <img src="{{ asset('client/img/logos/logo-4.png') }}" alt="">
+            </div>
+            <div class="logo-item">
+                <img src="{{ asset('client/img/logos/logo-5.png') }}" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- Logo Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section spad">
+        <div class="container">
+            <div class="newslatter-form">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="#">
+                            <input type="text" placeholder="Your email address">
+                            <button type="submit">Subscribe to our newsletter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-widget">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>About us</h4>
+                            <ul>
+                                <li>About Us</li>
+                                <li>Community</li>
+                                <li>Jobs</li>
+                                <li>Shipping</li>
+                                <li>Contact Us</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Customer Care</h4>
+                            <ul>
+                                <li>Search</li>
+                                <li>Privacy Policy</li>
+                                <li>2019 Lookbook</li>
+                                <li>Shipping & Delivery</li>
+                                <li>Gallery</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Our Services</h4>
+                            <ul>
+                                <li>Free Shipping</li>
+                                <li>Free Returnes</li>
+                                <li>Our Franchising</li>
+                                <li>Terms and conditions</li>
+                                <li>Privacy Policy</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Information</h4>
+                            <ul>
+                                <li>Payment methods</li>
+                                <li>Times and shipping costs</li>
+                                <li>Product Returns</li>
+                                <li>Shipping methods</li>
+                                <li>Conformity of the products</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social-links-warp">
+            <div class="container">
+                <div class="social-links">
+                    <a href="{{ asset('#') }}" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+                    <a href="{{ asset('#') }}" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+                    <a href="{{ asset('#') }}" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                    <a href="{{ asset('#') }}" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+                    <a href="{{ asset('#') }}" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+                    <a href="{{ asset('#') }}" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+                </div>
+            </div>
+
+            <div class="container text-center pt-5">
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+
+
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('client/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('client/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('client/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('client/js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('client/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('client/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('client/js/mixitup.min.js') }}"></script>
+    <script src="{{ asset('client/js/main.js') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+velo_homepage:
+    path:     /
+    defaults: { _controller: VeloBundle:Default:index }
+front:
+    path:     /usr
+    defaults: { _controller: VeloBundle:front:index }
+
+back:
+    path:     /admin
+    defaults: { _controller: VeloBundle:back:index }
+
+evenement_ajouter:
+    path:     /ajouterEve
+    defaults: { _controller: VeloBundle:Evenement:Ajouter }
+
+evenement_afficher:
+    path:     /afficherEve
+    defaults: { _controller: VeloBundle:Evenement:affiche }
+
+evenement_modifier:
+    path:     /modifierEve/{id}
+    defaults: { _controller: VeloBundle:Evenement:update }
+
+evenement_supprimer:
+    path:     /supprimerEve/{id}
+    defaults: { _controller: VeloBundle:Evenement:supprimer }
+
+detailsEve:
+    path:     /detailsEve/{id}
+    defaults: { _controller: VeloBundle:Evenement:evenementDetails }
+
+export:
+    path:     /export
+    defaults: { _controller: VeloBundle:Evenement:export }
+
+evenement_afficherfront:
+    path:     /afficherEvefront
+    defaults: { _controller: VeloBundle:Evenement:affichefront }
+
+evenementDetailsFront:
+    path:     /evenementDetailsFront/{id}
+    defaults: { _controller: VeloBundle:Evenement:evenementDetailsFront }
+
+evenement_calendrier:
+    path:     /evenement_calendrier
+    defaults: { _controller: VeloBundle:Evenement:evenement_calendrier }
+
+JsonCalSE:
+    path:     /JsonCalSE
+    defaults: { _controller: VeloBundle:Evenement:JsonCalSE }
+
+participant_supprimer:
+    path:     /supprimerP/{id}
+    defaults: { _controller: VeloBundle:Evenement:supprimerP }

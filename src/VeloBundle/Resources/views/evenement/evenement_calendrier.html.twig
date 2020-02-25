@@ -1,0 +1,55 @@
+<html>
+
+<body>
+<link href='/assets/demo-to-codepen.css' rel='stylesheet' />
+<link href='https://unpkg.com/fullcalendar@3.10.1/dist/fullcalendar.min.css' rel='stylesheet' />
+<link href='https://unpkg.com/fullcalendar@3.10.1/dist/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='https://unpkg.com/moment@2.24.0/min/moment.min.js'></script>
+<script src='https://unpkg.com/jquery@3.4.1/dist/jquery.min.js'></script>
+<script src='https://unpkg.com/fullcalendar@3.10.1/dist/fullcalendar.min.js'></script>
+<script src='https://unpkg.com/fullcalendar@3.10.1/dist/locale-all.js'></script>
+
+
+<script>
+
+    $(document).ready(function() {
+        var calendar = $('#calendar').fullCalendar({
+
+            locale: 'fr',
+            defaultView: 'agendaWeek',
+            editable:false,
+
+
+            height: 'auto',
+            header:{
+
+                left:'prev,next,today',
+                center:'title',
+
+                right:'month,agendaWeek,agendaDay'
+            },
+
+            eventSources: [
+                {
+                    url: "/velotn/web/app_dev.php/JsonCalSE",
+                    method: "GET",
+                    extraParams: {
+                        filters: JSON.stringify({})
+                    },
+                    failure: () => {
+                        alert("There was an error while fetching FullCalendar!");
+                    },
+                },
+            ]
+        });
+
+    });
+
+</script>
+
+<br>
+
+<div id="calendar"></div>
+
+</body>
+</html>

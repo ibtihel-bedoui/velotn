@@ -1,0 +1,254 @@
+{% extends 'base.html.twig' %}
+            {% block front %}
+            {% set urlc= app.request.uri %}
+
+
+{% set long = urlc|length %}
+
+{% set res=  urlc|slice(67, long) %}
+{% if evenement.id == res %}
+
+    
+  <style>
+    .rating {
+    font-size:16px;
+}
+
+.rating-well {
+    display: inline-block;
+    direction: rtl;
+}
+
+.rating input.rating {
+    display: none;
+}
+
+.rating div.star {
+    font-family:FontAwesome;
+    font-weight:normal;
+    font-style:normal;
+    font-size: 25px;
+    display:inline-block;
+    position: relative;
+}
+
+.rating div.star:hover {
+    cursor:pointer;
+}
+
+.rating div.star:before {
+    content:"\f006";
+    padding-right:5px;
+    color:#999;
+}
+
+.rating div.star:hover:before,.rating div.star:hover~div.star:before {
+    content:"\f005";
+    color:#e3cf7a;
+}
+
+.rating div.star-full {
+    font-family:FontAwesome;
+    font-weight:normal;
+    font-style:normal;
+    font-size: 25px;
+    display:inline-block;
+    position: relative;
+}
+
+.rating div.star-full:before  {
+    content:"\f005";
+    padding-right:5px;
+    color:#e3cf7a;
+}
+
+.rating div.star-empty {
+    font-family:FontAwesome;
+    font-weight:normal;
+    font-style:normal;
+    font-size: 25px;
+    display:inline-block;
+    position: relative;
+}
+
+.rating div.star-empty:before  {
+    content:"\f006";
+    padding-right:5px;
+    color:#999;
+}
+
+.rating div.fa-norm {
+    font-size: 1em;
+}
+
+.rating div.fa-lg {
+    font-size: 1.33333333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+}
+
+.rating div.fa-2x {
+    font-size: 2em;
+}
+
+.rating div.fa-3x {
+    font-size: 3em;
+}
+
+.rating div.fa-4x {
+    font-size: 4em;
+}
+
+.rating div.fa-5x {
+    font-size: 5em;
+}
+    </style>
+    <script>
+    $(function(){
+    var labelWasClicked = function labelWasClicked(){
+        var input = $(this).siblings().filter('input');
+        if (input.attr('disabled')) {
+            return;
+        }
+        input.val($(this).attr('data-value'));
+    }
+
+    var turnToStar = function turnToStar(){
+        if ($(this).find('input').attr('disabled')) {
+            return;
+        }
+        var labels = $(this).find('div');
+        labels.removeClass();
+        labels.addClass('star');
+    }
+
+    var turnStarBack = function turnStarBack(){
+        var rating = parseInt($(this).find('input').val());
+        if (rating > 0) {
+            var selectedStar = $(this).children().filter('#rating_star_'+rating)
+            var prevLabels = $(selectedStar).nextAll();
+            prevLabels.removeClass();
+            prevLabels.addClass('star-full');
+            selectedStar.removeClass();
+            selectedStar.addClass('star-full');
+        }
+    }
+
+    $('.star, .rating-well').click(labelWasClicked);
+    $('.rating-well').each(turnStarBack);
+    $('.rating-well').hover(turnToStar,turnStarBack);
+
+});
+    </script>
+  <link rel="stylesheet" href="{{ asset('comment/css/revslider/settings.css') }}"> <!--revslider-->
+
+    <!--END CSS-->
+    <link rel="stylesheet" href="{{asset('comment/css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('comment/css/animate.css')}}">
+    
+    <link rel="stylesheet" href="{{asset('comment/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('comment/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('comment/css/magnific-popup.css')}}">
+
+    <link rel="stylesheet" href="{{asset('comment/css/aos.css')}}">
+
+    <link rel="stylesheet" href="{{asset('comment/css/ionicons.min.css')}}">
+    
+    <link rel="stylesheet" href="{{asset('comment/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('comment/css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{asset('comment/css/style.css')}}">
+    <script src="{{ asset('comment/starrating/js/rating.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="{{ asset('comment/starrating/css/rating.css') }}" />
+             <link rel="stylesheet" type="text/css" href="jquerymobile/jquery.mobile-1.0a1.min.css" />
+
+    <section class="product-page">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product-slider owl-carousel">
+                        <div class="product-img">
+                            <figure>
+                                <img src="{{ asset('images/') }}{{ evenement.nomImage }}" alt="">
+                            </figure>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-lg-6">
+                    <div class="product-content">
+                        <h4>{{evenement.libelle}}
+                        <br>{{evenement.datedebut|date}}</h4>
+                        <div class="pc-meta">
+                           
+                        </div>
+                        <p>{{evenement.description}}.</p>
+                        
+                       
+                                
+                    </div>
+                                    <h2 class="mb-5 h4 font-weight-bold">Les Participants :</h2>            
+<tr>
+                      {% set urlc= app.request.uri %}
+                {% set long = urlc|length %}
+                {% set res=  urlc|slice(67, long) %}
+                 <div class="comment-body">
+                        {% for participant in participants %}
+                            {% if participant.evenement.id == res %}
+                    <div class="product-content">
+                        <h3>{{participant.nom}}
+                        <br>{{participant.prenom}}</h3>
+                            <div class="pc-meta">
+                            </div>
+                        <p>{{participant.numdossard}}</p>
+                </div>
+                {% endif %}
+                {% endfor %}   
+                </tr> 
+                <h2 class="mb-5 h4 font-weight-bold">Leave a comment</h2>            
+                <div class="pt-5 mt-5">
+              <h3 class="mb-5 h4 font-weight-bold"></h3>
+                {% set urlc= app.request.uri %}
+                {% set long = urlc|length %}
+                {% set res=  urlc|slice(67, long) %}
+                 <div class="comment-body">
+                        {% for commentaire in commentaires %}
+                            {% if commentaire.evenement.id == res %}
+                        
+                  
+                                   
+                                        <h3>Ibtihel</h3>
+                                        {{ commentaire.datecreate|date }} 
+                                        
+                                        <p>
+
+                                        
+                                                {{commentaire.contenue}}
+                                               
+                                        </p>
+                                        <p>{{ commentaire.rating|rating }}</p>
+                                        
+                                   
+               
+
+                            {% endif %}
+                        {% endfor %}
+                         </div>
+              <!-- END comment-list -->
+              
+              <div class="comment-form-wrap pt-5">
+                
+                  {{form(form)}}
+                
+              </div>
+            </div>
+        </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    {{ socialButtons() }}
+    {% endif %}
+  {% endblock %}
